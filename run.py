@@ -120,6 +120,12 @@ def check_tie(board):
         return False     
 
 
+def switch_player(current_player):
+    if current_player == "X":
+        current_player = "O"
+    else:
+        current_player = "X"
+
 
 
 print('Welcome to Tic Tac Toe! \nYou are X, the computer is O. \nYou go first - choose your move by selecting your space on the board.\nGet a straight line of Xs (row, column, diagonal) to win.')
