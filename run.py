@@ -8,6 +8,8 @@ board = ['-' for x in range(9)]
 
 current_player = 'X'
 
+game_running = True
+
 def print_board(board):
     print("""
     {0} | {1} | {2}
@@ -183,6 +185,27 @@ def computer(board):
 print('Welcome to Tic Tac Toe! \nYou are X, the computer is O. \nYou go first - choose your move by selecting your space on the board.\nGet a straight line of Xs (row, column, diagonal) to win.')
 welcome()
 
+while game_running:
 
-print_board(board)
-player_input(board)
+    print_board(board)
+    player_input(board)
+    if check_win(board) == False:
+        game_running = False
+    if check_tie(board) == False:
+        game_running = False
+    switch_player(current_player)
+    computer_move = computer(board)
+    if computer_move != None:
+        board[computer_move] = 'O'
+    if check_win(board) == False:
+        game_running = False            
+    if check_tie(board) == False:
+        game_running = False
+    
+    switch_player(current_player)
+    if game_running == False:
+        if play_again() == False:
+            game_running = False
+        else:
+            game_running = True    
+            board = ['-' for x in range(9)]
