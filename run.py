@@ -89,9 +89,42 @@ def check_diagonal(board):
         return False
 
 
+def check_win(board):
+    if check_row(board) != False:
+        print_board(board)
+        if check_row(board) == 'X':
+            print('You win!')
+        else:
+            print('Computer wins')  
+        return False
+    elif check_column(board) !=False:
+        print_board(board)
+        if check_row(board) == 'X':
+            print('You win!')
+        else:
+            print('Computer wins')  
+        return False
+    elif check_diagonal(board) != False:
+        print_board(board)
+        if check_row(board) == 'X':
+            print('You win!')
+        else:
+            print('Computer wins')
+        return False
+
+
+def check_tie(board):
+    if '-' not in board:
+        print_board(board)
+        print("It's a tie") 
+        return False     
+
+
 
 
 print('Welcome to Tic Tac Toe! \nYou are X, the computer is O. \nYou go first - choose your move by selecting your space on the board.\nGet a straight line of Xs (row, column, diagonal) to win.')
 welcome()
+
+
 print_board(board)
 player_input(board)
