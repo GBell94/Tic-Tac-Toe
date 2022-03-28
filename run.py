@@ -16,6 +16,7 @@ def print_board(board):
     ---------
     {6} | {7} | {8}""".format(board[0],board[1],board[2],board[3],board[4],board[5],
     board[6],board[7],board[8]))
+    print()
 
 
 def welcome():
@@ -29,8 +30,29 @@ def welcome():
     board[6],board[7],board[8]))
     print()
 
+def player_input(board):
+
+    run = True
+    while run:
+        response = input('Please choose your move (1 - 9): ')
+        try:
+            move = int(response) - 1
+            if move >=0 and move <=9:
+                if board[move] == '-':
+                    run = False
+                    board[move] = current_player  
+                else:
+                    print('This space has already been used. Please choose again.')  
+            else:
+                print('Your move should be in the range 1 to 9')
+        except:
+            print('Your move needs to be a number, please try again.')
+
+
 
 
 
 print('Welcome to Tic Tac Toe! \nYou are X, the computer is O. \nYou go first - choose your move by selecting your space on the board.\nGet a straight line of Xs (row, column, diagonal) to win.')
 welcome()
+print_board(board)
+player_input(board)
