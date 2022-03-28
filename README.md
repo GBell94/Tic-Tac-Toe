@@ -47,7 +47,7 @@ The project has been manually tested as follows:
 ### Solved Bugs
 
 - The check_row, check_column and check_diagonal functions did not work correctly initially and were rewritten to return the winner.
-- The play_again function printed out the request for user information but did not restart or exit in response. This was due to attempting to change a global variable within the function. This was changed to return True/False and the global variable changed outside the play_again function.
+- The play_again function printed out the request for user information but did not restart or exit in response. This was due to attempting to change a global variable within the function. This was rewritten to return True/False and the global variable changed outside the play_again function.
 
 ### Remaining Bugs
 
