@@ -127,6 +127,14 @@ def switch_player(current_player):
         current_player = "X"
 
 
+def play_again():
+    exit = input('Do you want to play again? (Y or N) ')
+    if exit.lower() == 'y':
+        return True
+    else:
+        print('Thanks for playing!') 
+        return False  
+
 
 print('Welcome to Tic Tac Toe! \nYou are X, the computer is O. \nYou go first - choose your move by selecting your space on the board.\nGet a straight line of Xs (row, column, diagonal) to win.')
 welcome()
