@@ -26,7 +26,7 @@ This version allows a user to play against the computer. The user is allocated '
 - Allow user to choose 'X' or 'O'.
 - Allow a random choice of who takes the first turn.
 - To develop the computer's game strategy. The computer's preferred moves change slightly depending on whether it takes the first turn or goes second. 
-- To investigate using itertools to check combinations of winning moves for the computer and also the minimax algorithm. However, the use of minimax allows the computer to win each time, which may be frustrating for a human user!
+- To investigate the minimax algorithm to decide the computer's move. However, the use of minimax allows the computer to win each time, which may be frustrating for a human user!
 - An object oriented approach to the game.
 
 ## Testing
@@ -37,19 +37,37 @@ The project has been manually tested as follows:
 - Invalid input has been provided at the prompt for a move, including a number outside the range 1 to 9, repeating a move already played and entering a string. 
 - The game has been run in a local Gitpod terminal and in the Heroku terminal.
 
+## Validator Testing
+
+- PEP8
+    No errors were returned from the PEP8 linter [PEP8online.com](http://pep8online.com/)
+
 ## Bugs
 
+### Solved Bugs
 
+- The check_row, check_column and check_diagonal functions did not work correctly initially and were rewritten to return the winner.
+- The play_again function printed out the request for user information but did not restart or exit in response. This was due to attempting to change a global variable within the function. This was changed to return True/False and the global variable changed outside the play_again function.
 
+### Remaining Bugs
 
-## Creating the Heroku app
+No known bugs remain.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## Deployment
 
-1. `heroku/python`
-2. `heroku/nodejs`
+This project was deployed using the Code Institute mock terminal for Heroku. After creating an Heroku account:
+- Create a new Heroku app.
+- Go to Settings tab and select Config Vars.
+- Create a _Config Var_ using the provided key and value.
+- Again in Settings tab, select Buildpacks.
+- Add Python and save, then add node.js and save. Ensure the order is Python first, node.js second.
+- Go to the Deployment tab.
+- In Deployment Method, select GitHub, then 'Connect to GitHub'. Add the project name and click 'search'. Once the project is found, click 'Connect'. 
+- CLick on Automatic Deploy.
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## Credits
 
-Connect your GitHub repository and deploy as normal.
-
+- Code Institute for the deployment terminal
+- The function to print the game board was taken from a suggestion on StackOverflow
+- The structure of the function to capture user input was adapted from a 'Tech with Tim' tutorial on YouTube
+- The structure of the function to create the computer's move was adapted from Al Sweigart's 'Invent with Python'

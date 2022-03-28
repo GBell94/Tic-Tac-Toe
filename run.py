@@ -101,14 +101,14 @@ def check_win(board):
         return False
     elif check_column(board) !=False:
         print_board(board)
-        if check_row(board) == 'X':
+        if check_column(board) == 'X':
             print('You win!')
         else:
             print('Computer wins')  
         return False
     elif check_diagonal(board) != False:
         print_board(board)
-        if check_row(board) == 'X':
+        if check_diagonal(board) == 'X':
             print('You win!')
         else:
             print('Computer wins')
