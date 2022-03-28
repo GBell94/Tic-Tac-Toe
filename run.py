@@ -30,6 +30,7 @@ def welcome():
     board[6],board[7],board[8]))
     print()
 
+
 def player_input(board):
 
     run = True
@@ -48,6 +49,44 @@ def player_input(board):
         except:
             print('Your move needs to be a number, please try again.')
 
+
+def check_row(board):
+    if board[0] == board[1] == board[2] and board[0] != '-':
+        winner = board[0]
+        return winner
+    elif board[3] == board[4] == board[5] and board[3] != '-':
+        winner = board[3]
+        return winner
+    elif board[6] == board[7] == board[8] and board[6] != '-':
+        winner = board[6]
+        return winner
+    else:
+        return False    
+
+
+def check_column(board):
+    if board[0] == board[3] == board[6] and board[0] != '-':
+        winner = board[0]
+        return winner
+    elif board[1] == board[4] == board[7] and board[1] != '-':
+        winner = board[1]
+        return winner
+    elif board[2] == board[5] == board[8] and board[2] != '-':
+        winner = board[2]
+        return winner
+    else:
+        return False 
+
+
+def check_diagonal(board):
+    if board[0] == board[4] == board[6] and board[0] != '-':
+        winner = board[0]
+        return winner
+    elif board[2] == board[4] == board[6] and board[2] != '-':
+        winner = board[2]
+        return winner
+    else:
+        return False
 
 
 
