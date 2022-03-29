@@ -1,4 +1,4 @@
-#**Tic Tac Toe**
+# Tic Tac Toe
 
 Tic Tac Toe is a Python terminal game which runs in the Code Institue mock terminal on Heroku.
 
@@ -71,3 +71,7 @@ This project was deployed using the Code Institute mock terminal for Heroku. Aft
 - The function to print the game board was taken from a suggestion on StackOverflow
 - The structure of the function to capture user input was adapted from a 'Tech with Tim' tutorial on YouTube
 - The structure of the function to create the computer's move was adapted from Al Sweigart's 'Invent with Python'
+
+### Note
+
+The game code is a copy from my own repository at github.com/GBell94/tic-tac-toe-2. Where the code has been taken or adapted from other sources, this is included in the credits section above.
