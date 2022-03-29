@@ -88,4 +88,4 @@ This project was deployed using the Code Institute mock terminal for Heroku. Aft
 
 ### Note
 
-The game code has been copied from my own repository at github.com/GBell94/tic-tac-toe-2. Where the code has been taken or adapted from other sources, this is included in the credits section above.
+The game code has been copied from my own repository at GBell94/tic-tac-toe-2. Where the code has been taken or adapted from other sources, this is included in the credits section above.

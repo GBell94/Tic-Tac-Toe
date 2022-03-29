@@ -115,27 +115,14 @@ def check_win(board):
     """
     If there is a winner, let the user know who won
     """
-    if check_row(board) is not False:
+    if ((check_row(board) is not False) or (check_column(board) is not False) or
+        (check_diagonal(board) is not False)):
         print_board(board)
-        if check_row(board) == 'X':
+        if (check_row(board) == 'X') or (check_column(board) == 'X') or (check_diagonal(board) == 'X'):
             print('You win!')
         else:
             print('Computer wins')
-        return False
-    elif check_column(board) is not False:
-        print_board(board)
-        if check_column(board) == 'X':
-            print('You win!')
-        else:
-            print('Computer wins')
-        return False
-    elif check_diagonal(board) is not False:
-        print_board(board)
-        if check_diagonal(board) == 'X':
-            print('You win!')
-        else:
-            print('Computer wins')
-        return False
+        return False  
 
 
 def check_tie(board):
@@ -229,17 +216,13 @@ while game_running:
 
     print_board(board)
     player_input(board)
-    if check_win(board) is False:
-        game_running = False
-    if check_tie(board) is False:
+    if (check_win(board) is False) or (check_tie(board) is False):
         game_running = False
     switch_player(current_player)
     computer_move = computer(board)
     if computer_move is not None:
         board[computer_move] = 'O'
-    if check_win(board) is False:
-        game_running = False
-    if check_tie(board) is False:
+    if (check_win(board) is False) or (check_tie(board) is False):
         game_running = False
     switch_player(current_player)
     if game_running is False:
