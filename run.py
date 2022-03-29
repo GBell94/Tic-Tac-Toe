@@ -12,6 +12,9 @@ game_running = True
 
 
 def print_board(board):
+    """
+    Take board list and display in a 2D row-column format
+    """
     print("""
     {0} | {1} | {2}
     ---------
@@ -23,6 +26,9 @@ def print_board(board):
 
 
 def welcome():
+    """
+    Print out an example board in the welcome message with the spaces numbered for reference
+    """
     board = [x for x in range(1, 10)]
     print("""
     {0} | {1} | {2}
@@ -35,7 +41,10 @@ def welcome():
 
 
 def player_input(board):
-
+    """
+    Get input from the player who enters their move. Validate the input - needs to be a number between
+    1 and 9 and not already chosen. Loop continues until input is valid.
+    """
     run = True
     while run:
         response = input('Please choose your move (1 - 9): ')
@@ -55,6 +64,9 @@ def player_input(board):
 
 
 def check_row(board):
+    """
+    Check if any row contains three identical letters and return the letter if there is a win
+    """
     if board[0] == board[1] == board[2] and board[0] != '-':
         winner = board[0]
         return winner
@@ -69,6 +81,9 @@ def check_row(board):
 
 
 def check_column(board):
+    """
+    Check if any column contains three identical letters and return the letter if there is a win
+    """
     if board[0] == board[3] == board[6] and board[0] != '-':
         winner = board[0]
         return winner
@@ -83,6 +98,9 @@ def check_column(board):
 
 
 def check_diagonal(board):
+    """
+    Check if either diagonal contains three identical letters and return the letter if there is a win
+    """
     if board[0] == board[4] == board[6] and board[0] != '-':
         winner = board[0]
         return winner
@@ -94,6 +112,9 @@ def check_diagonal(board):
 
 
 def check_win(board):
+    """
+    If there is a winner, let the user know who won
+    """
     if check_row(board) is not False:
         print_board(board)
         if check_row(board) == 'X':
@@ -118,6 +139,9 @@ def check_win(board):
 
 
 def check_tie(board):
+    """
+    Check if there are no more moves available and let user know this is a tie
+    """
     if '-' not in board:
         print_board(board)
         print("It's a tie")
@@ -132,6 +156,9 @@ def switch_player(current_player):
 
 
 def play_again():
+    """
+    Get input from user to play another game or quit
+    """
     exit = input('Do you want to play again? (Y or N) ')
     if exit.lower() == 'y':
         return True
@@ -141,6 +168,9 @@ def play_again():
 
 
 def winner(board, letter):
+    """
+    Returns if there is a winner - used in working out the computer move
+    """
     return ((board[0] == board[1] == board[2] == letter) or
             (board[3] == board[4] == board[5] == letter) or
             (board[6] == board[7] == board[8] == letter) or
@@ -152,6 +182,12 @@ def winner(board, letter):
 
 
 def computer(board):
+    """
+    Work out the computer move.
+    Create a list of possible moves. Create a copy of the current board and check if it's possible to
+    make a winning move. If not, try to block a player win. Take the centre position as a first 
+    preference, the try a corner and finally a side position.
+    """
     possible_moves = []
     for i in range(0, 9):
         if board[i] == '-':
@@ -184,7 +220,7 @@ def computer(board):
         return random.choice(sides)
 
 
-print('Welcome to Tic Tac Toe! \n\nYou are X, the computer is O. \nYou go first - '
+print('WELCOME to TIC TAC TOE! \n\nYou are X, the computer is O. \nYou go first - '
       'choose your move by selecting your space on the board.\nGet a straight'
       'line of Xs (row, column, diagonal) to win.')
 welcome()
@@ -205,7 +241,6 @@ while game_running:
         game_running = False
     if check_tie(board) is False:
         game_running = False
-
     switch_player(current_player)
     if game_running is False:
         if play_again() is False:
