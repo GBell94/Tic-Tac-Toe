@@ -49,7 +49,7 @@ def player_input(board):
     """
     run = True
     while run:
-        response = input('Please choose your move (1 - 9): ')
+        response = input('Please choose your move (1 - 9): \n')
         try:
             move = int(response) - 1
             if move >= 0 and move <= 9:
@@ -152,7 +152,7 @@ def play_again():
     """
     Get input from user to play another game or quit
     """
-    exit = input('Do you want to play again? (Y or N) ')
+    exit = input('Do you want to play again? (Y or N) \n')
     if exit.lower() == 'y':
         return True
     else:
