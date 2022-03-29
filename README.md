@@ -21,6 +21,18 @@ This version allows a user to play against the computer. The user is allocated '
 - Users are given feedback regarding a win or tie.
 - There is an opportunity for the user to play again or to quit.
 
+Welcome to the game:
+
+![welcome screenshot](/images/Game-welcome-screenshot.png)
+
+User validation:
+
+![user validation screenshot](/images/user-input-validation-screenshot.png)
+
+End of game:
+
+![exit screenshot](/images/exit-user-input-screenshot.png)
+
 ## Future Features
 
 - Allow user to choose 'X' or 'O'.
@@ -41,6 +53,8 @@ The project has been manually tested as follows:
 
 - PEP8
     No errors were returned from the PEP8 linter [PEP8online.com](http://pep8online.com/)
+
+![PEP8 screenshot](/images/PEP8-screenshot.png)
 
 ## Bugs
 
@@ -74,4 +88,4 @@ This project was deployed using the Code Institute mock terminal for Heroku. Aft
 
 ### Note
 
-The game code is a copy from my own repository at github.com/GBell94/tic-tac-toe-2. Where the code has been taken or adapted from other sources, this is included in the credits section above.
+The game code has been copied from my own repository at github.com/GBell94/tic-tac-toe-2. Where the code has been taken or adapted from other sources, this is included in the credits section above.
