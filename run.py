@@ -27,7 +27,8 @@ def print_board(board):
 
 def welcome():
     """
-    Print out an example board in the welcome message with the spaces numbered for reference
+    Print out an example board in the welcome message with the spaces numbered
+    for reference
     """
     board = [x for x in range(1, 10)]
     print("""
@@ -42,8 +43,9 @@ def welcome():
 
 def player_input(board):
     """
-    Get input from the player who enters their move. Validate the input - needs to be a number between
-    1 and 9 and not already chosen. Loop continues until input is valid.
+    Get input from the player who enters their move. Validate the input -
+    needs to be a number between 1 and 9 and not already chosen. Loop continues
+    until input is valid.
     """
     run = True
     while run:
@@ -65,7 +67,8 @@ def player_input(board):
 
 def check_row(board):
     """
-    Check if any row contains three identical letters and return the letter if there is a win
+    Check if any row contains three identical letters and return the letter
+    if there is a win
     """
     if board[0] == board[1] == board[2] and board[0] != '-':
         winner = board[0]
@@ -82,7 +85,8 @@ def check_row(board):
 
 def check_column(board):
     """
-    Check if any column contains three identical letters and return the letter if there is a win
+    Check if any column contains three identical letters and return the letter
+    if there is a win
     """
     if board[0] == board[3] == board[6] and board[0] != '-':
         winner = board[0]
@@ -99,7 +103,8 @@ def check_column(board):
 
 def check_diagonal(board):
     """
-    Check if either diagonal contains three identical letters and return the letter if there is a win
+    Check if either diagonal contains three identical letters and return the
+    letter if there is a win
     """
     if board[0] == board[4] == board[6] and board[0] != '-':
         winner = board[0]
@@ -115,14 +120,15 @@ def check_win(board):
     """
     If there is a winner, let the user know who won
     """
-    if ((check_row(board) is not False) or (check_column(board) is not False) or
-        (check_diagonal(board) is not False)):
+    if ((check_row(board) is not False) or (check_column(board) is not False) or 
+       (check_diagonal(board) is not False)):
         print_board(board)
-        if (check_row(board) == 'X') or (check_column(board) == 'X') or (check_diagonal(board) == 'X'):
+        if ((check_row(board) == 'X') or (check_column(board) == 'X') or 
+        (check_diagonal(board) == 'X')):
             print('You win!')
         else:
             print('Computer wins')
-        return False  
+        return False
 
 
 def check_tie(board):
@@ -171,9 +177,10 @@ def winner(board, letter):
 def computer(board):
     """
     Work out the computer move.
-    Create a list of possible moves. Create a copy of the current board and check if it's possible to
-    make a winning move. If not, try to block a player win. Take the centre position as a first 
-    preference, the try a corner and finally a side position.
+    Create a list of possible moves. Create a copy of the current board and
+    check if it's possible to make a winning move. If not, try to block a
+    player win. Take the centre position as a first preference, the try a
+    corner and finally a side position.
     """
     possible_moves = []
     for i in range(0, 9):
@@ -207,9 +214,9 @@ def computer(board):
         return random.choice(sides)
 
 
-print('WELCOME to TIC TAC TOE! \n\nYou are X, the computer is O. \nYou go first - '
-      'choose your move by selecting your space on the board.\nGet a straight'
-      'line of Xs (row, column, diagonal) to win.')
+print('WELCOME to TIC TAC TOE! \n\nYou are X, the computer is O. \nYou go '
+      'first - choose your move by selecting your space on the board.\nGet '
+      'a straight line of Xs (row, column, diagonal) to win.')
 welcome()
 
 while game_running:
